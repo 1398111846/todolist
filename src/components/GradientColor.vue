@@ -24,10 +24,9 @@ export default {
         //     return '-webkit-gradient(linear, left bottom, left top, ${colorBottom}, ${colorTop})';
         // }
         gradientColor () {
-            console.log(this);
             const colorBottom = `color-stop(30%, ${this.colors[0]})`
             const colorTop = `to(${this.colors[1]})`
-            console.log(colorBottom);
+            console.log(this)
             return `-webkit-gradient(linear, left bottom, left top, ${colorBottom}, ${colorTop})`
         }
     }
@@ -45,6 +44,5 @@ export default {
 
 .gradient_color__active {
     opacity: 1;
-    background-image: -webkit-gradient();
 }
 </style>

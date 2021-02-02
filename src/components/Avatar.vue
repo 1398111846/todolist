@@ -21,16 +21,16 @@ export default {
     };
   },
   computed: {
-    ...mapState(["selected"]), //vuex?
+    ...mapState(["selected"]), 
     ...mapGetters(["todayTasks"]),
   },
   filters: {
-    //dateString?
+    //过滤器
     dateString(val) {
       return val
         .toDateString()
         .toUpperCase()
-        .replace(/(\s\d{4})$/, ", $1");//正则?
+        .replace(/(\s\d{4})$/, ",$1");
     },
   },
 };

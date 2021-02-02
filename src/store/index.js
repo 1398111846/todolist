@@ -7,12 +7,11 @@ Vue.use(Vuex)
 //创建VueX对象
 const store = new Vuex.Store({
     state: {
-        //存放的键值对就是所要管理的状态
         selected: null,
         todos: [
             {
-                icon: 'user',
-                name: 'personal',
+                icon: 'home',
+                type: 'personal',
                 tasks: [
                     {
                         id: 1,
@@ -22,10 +21,38 @@ const store = new Vuex.Store({
                         delete: false,
                     }
                 ],
-                colors: ['#ff6262', '#ffa947'],
+                colors: ['#fbc8d4', '#9795f0'],
             },
+            {
+                icon: 'briefcase',
+                type: 'work',
+                tasks: [
+                    {
+                        id: 2,
+                        title: 'Write Paper',
+                        date: new Date(),
+                        done: false,
+                        delete: false,
+                    }
+                ],
+                colors: ['#ffecd2', '#fcb69f']
+            },
+            {
+                icon: 'leanpub',
+                type: 'study',
+                tasks: [
+                    {
+                        id: 3,
+                        title: 'Learn JS',
+                        date: new Date(),
+                        done: false,
+                        delete: false,
+                    }
+                ],
+                colors: ['#13547a', '#80d0c7']
+            }
         ],
-        currentIndex: 0,
+        currentIndex: 1,
     },
     getters: {
         todayTasks(state) {
