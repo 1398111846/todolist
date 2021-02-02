@@ -8,7 +8,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         selected: null,
-        currentIndex: 1,
+        currentIndex: 2,
         todos: [
             {
                 icon: 'home',
@@ -47,6 +47,20 @@ const store = new Vuex.Store({
                         title: 'Learn JS',
                         date: new Date(),
                         done: false,
+                        delete: false,
+                    },
+                    {
+                        id: 4,
+                        title: 'Learn CSS',
+                        date: new Date(),
+                        done: true,
+                        delete: true,
+                    },
+                    {
+                        id: 5,
+                        title: 'Learn VUE',
+                        date: new Date(),
+                        done: true,
                         delete: false,
                     }
                 ],

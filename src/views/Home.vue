@@ -4,6 +4,7 @@
     <Avatar />
     <Gradient />
     <TodoList />
+    <TodoDetail />
   </div>
 </template>
 
@@ -11,13 +12,15 @@
 import AppBar from '../components/AppBar.vue'
 import Avatar from '../components/Avatar.vue'
 import Gradient from '../components/Gradient.vue'
-import TodoList from '../components/TodoList.vue';
+import TodoList from '../components/TodoList.vue'
+import TodoDetail from '../components/TodoDetail.vue'
 export default {
   components: {
     AppBar,
     Avatar,
     Gradient,
     TodoList,
+    TodoDetail,
   }
 }
 </script>

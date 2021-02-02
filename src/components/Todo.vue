@@ -1,16 +1,19 @@
 <template>
   <div class="todo" :class="{todo_selected: selected}">
     <div class="todo_head">
-      <div class="todo_icon">
+      <div class="todo_icon" :style="{color}">
         <i :class="['fa', `fa-${todo.icon}`]"></i>
       </div>
       <div class="todo_menu">
-        <i :class="['fa', 'fa-bars']"></i>
+        <i :class="['fa', 'fa-ellipsis-v']"></i>
       </div>
     </div>
     <div class="todo_body">
-      <p class="todo_tips">{{ todo.length }} Tasks</p>
-      <h2>{{ todo.type }}</h2>
+      <p class="todo_tips">{{ todo.tasks.length }} 
+          <span v-if="todo.tasks.length == 1">Task</span>
+          <span v-else>Tasks</span>
+      </p>
+      <h2 class="todo_type">{{ todo.type }}</h2>
       <div class="todo_progress">
         <span class="todo_progress_line">
           <i :style="{ width: progress, backgroundImage: progressColor }"></i>
@@ -74,12 +77,12 @@ export default {
         progress() {
             const totalCount = this.todo.tasks.filter(t => !t.deleted).length;
             const doneCount = this.todo.tasks.filter(t => !t.deleted && t.done).length;
-            return `${Math.round(doneCount / totalCount) * 100}%`;
+            return `${Math.round(doneCount / totalCount * 100)}%`;
         },
         progressColor() {
-            const colorBottom = `color-stop(30%, ${this.todo.colors[0]})`;
-            const colorTop = `to(${this.todo.colors[1]})`;
-            return `-webkit-gradient(linear, left bottom, left top, ${colorBottom}, ${colorTop})`
+            const colorBottom = `color-stop(30%, ${this.todo.colors[1]})`;
+            const colorTop = `to(${this.todo.colors[0]})`;
+            return `-webkit-gradient(linear, left bottom, right bottom, ${colorBottom}, ${colorTop})`
         },
         todayTasks() {
             return this.todo.tasks.filter(task => 
@@ -125,5 +128,47 @@ export default {
         transform: translate3d(0, 160px, 0);
         will-change: transform;
     }
+    .todo_icon {
+        display: flex;
+        width: 44px;
+        height: 44px;
+        border-radius: 100%;
+        border: 1px solid #eee;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+    }
+    .todo_menu {
+        padding-top: 12px;
+        color: #eee;
+    }
+    .todo_tips {
+        font-size: 16px;
+        font-weight: 600;
+        opacity: 0.6;
+    }
+    .todo_type {
+        font-size: 32px;
+        margin-top: 6px;
+    }
+    .todo_progress {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .todo_progress_line {
+        margin-right: 10px;
+        flex: 1;
+        background-color: #eee;
+        height: 1px;
+        i {
+            height: 100%;
+            display: block;
+            transition: all 0.3s ease;
+        }
+    }
+
 
 </style>

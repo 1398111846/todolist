@@ -1,10 +1,10 @@
 <template>
-    <div class="app-bar">
-        <span class="app-bar-left">
+    <div class="app_bar">
+        <span class="app_bar_left">
             <i :class="['fa', `fa-${left}`, 'fa-2x']"></i>
         </span>
         <h1>{{title}}</h1>
-        <span class="app-bar-right">
+        <span class="app_bar_right">
             <i :class="['fa', `fa-${right}`, 'fa-2x']"></i>
         </span>
     </div>
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .app-bar {
+    .app_bar {
         display: flex;
         align-items: center;
         height: 44px;
