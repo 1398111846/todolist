@@ -1,6 +1,6 @@
 <template>
   <div class="todo_list" :class="{ todo_list__selected: selected }">
-    <ul :style="{ width: `${todos.length * 100}` }">
+    <ul :style="{ width: `${todos.length * 100}%` }">
       <li
         v-for="todo in todos"
         :key="todo.name"
@@ -34,10 +34,13 @@ export default {
 </script>
 
 <style lang="scss">
-.todo_list {
+.todo_list {  
   padding: 0 32px;
   height: 400px;
   transition: all 0.5s ease;
+  >ul {
+      padding: 0;
+  }
 
   > ul,
   > ul > li {
@@ -50,7 +53,7 @@ export default {
   }
   .todo {
     border-radius: 8px;
-    background-color: whitesmoke;
+    background-color: white;
   }
 }
 .todo_list__selected {

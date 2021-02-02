@@ -8,6 +8,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         selected: null,
+        currentIndex: 1,
         todos: [
             {
                 icon: 'home',
@@ -52,7 +53,6 @@ const store = new Vuex.Store({
                 colors: ['#13547a', '#80d0c7']
             }
         ],
-        currentIndex: 1,
     },
     getters: {
         todayTasks(state) {
