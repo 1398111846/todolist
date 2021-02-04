@@ -8,6 +8,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         selected: null,
+        unselect: null,
         currentIndex: 2,
         todos: [
             {
@@ -74,6 +75,12 @@ const store = new Vuex.Store({
             return tasks;
         }
     },
+    mutations: {
+        selectTodo(state, selected) {
+            state.unselect = null;
+            state.selected = selected;
+        }
+    }
 })
 
 export default store
