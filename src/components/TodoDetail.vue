@@ -76,9 +76,77 @@ export default {
     padding: 0 20px;
     box-shadow: none;
   }
-  .todo_head, 
+  .todo_head,
   .todo_body {
-    transform:translate3d(0, 88px, 0);
+    transform: translate3d(0, 88px, 0);
+  }
+  .todo_menu {
+    opacity: 0;
+  }
+  .todo_tasks {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  .app_bar {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.show-enter-to,
+.show-leave {
+  border-radius: 0;
+  .todo {
+    padding: 0 20px;
+  }
+  .todo_head,
+  .todo_body {
+    transform: translate3d(0, 88px, 0);
+  }
+  .todo_menu {
+    opacity: 0;
+  }
+  .todo_task {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+  .app_bar {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.show-leave-to,
+.show-enter {
+  border-radius: 8px;
+  .todo {
+    padding: 0;
+  }
+  .todo_head,
+  .todo_body {
+    transform: translate3d(0, 0, 0);
+  }
+  .todo_menu {
+    opacity: 1;
+  }
+  .todo_task {
+    opacity: 0;
+    transform: scale3d(1, 0, 1);
+  }
+  .app_bar {
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.show-enter-active,
+.show-leave-active {
+  transition: all 0.5s ease;
+  .todo,
+  .todo_head,
+  .todo_body,
+  .todo_menu,
+  .todo_task,
+  .app_bar {
+    transition: all 0.5s ease;
   }
 }
 </style>

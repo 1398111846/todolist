@@ -78,10 +78,16 @@ export default {
       return `-webkit-gradient(linear, left bottom, right bottom, ${colorBottom}, ${colorTop})`;
     },
     todayTasks() {
+      //console.log(this.todo.tasks, 'today',today,'tomorrow',tomo );
       return this.todo.tasks.filter((task) => {
-        task.date >= today && task.date < tomorrow;
+        return task.date >= today && task.date < tomorrow;
       });
     },
+    // todayTasks () {
+    //   return this.todo.tasks.filter(task => {
+    //     return task.date >= today && task.date < tomorrow
+    //   })
+    // },
     tomorrowTasks() {
       return this.todo.tasks.filter((task) => {
         task.date >= tomorrow;
@@ -178,5 +184,14 @@ export default {
     display: block;
     transition: all 0.3s ease;
   }
+}
+.todo_tasks {
+  opacity: 0;
+  transform: scale3d(1, 0, 1);
+}
+.todo_tasks_title {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  color: #999;
 }
 </style>

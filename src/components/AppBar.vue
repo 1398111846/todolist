@@ -15,7 +15,7 @@ export default {
     props: {
         title: {
             type: String,
-            default:'todo',
+            default:'',
         },
         left: {
             type: String,
